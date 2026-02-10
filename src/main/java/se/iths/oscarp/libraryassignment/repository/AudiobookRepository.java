@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import se.iths.oscarp.libraryassignment.model.Audiobook;
 
 @Repository
-public interface AudiobookRepository extends JpaRepository<Audiobook, String> {
+public interface AudiobookRepository extends JpaRepository<Audiobook, Long> {
 }
