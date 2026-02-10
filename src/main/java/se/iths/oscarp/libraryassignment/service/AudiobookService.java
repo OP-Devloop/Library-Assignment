@@ -34,6 +34,7 @@ public class AudiobookService {
 
     public Audiobook updateAudiobook(Long id, Audiobook audiobook) {
         if (audiobookRepository.existsById(id)) {
+            audiobook.setId(id);
             return audiobookRepository.save(audiobook);
         } else {
             throw new AudiobookNotFoundException("Audiobook id: " + id + " not found");
