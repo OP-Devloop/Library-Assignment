@@ -8,6 +8,10 @@ import se.iths.oscarp.libraryassignment.model.Audiobook;
 public class AudiobookValidator {
 
     public void validate(Audiobook audiobook) {
+        if (audiobook == null) {
+            throw new AudiobookValidationException("Audiobook cannot be null.");
+        }
+
         validateTitle(audiobook.getTitle());
         validateAuthor(audiobook.getAuthor());
         validateNarrator(audiobook.getNarrator());
@@ -35,7 +39,7 @@ public class AudiobookValidator {
 
     private void validateReleaseDate(String releaseDate) {
         if (releaseDate == null || releaseDate.isBlank()) {
-            throw new AudiobookValidationException("Invalid cannot be blank.");
+            throw new AudiobookValidationException("Release date cannot be blank.");
         }
     }
 
