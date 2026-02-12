@@ -29,10 +29,12 @@ public class AudiobookService {
     }
 
     public Audiobook createAudiobook(Audiobook audiobook) {
+        audiobookValidator.validate(audiobook);
         return audiobookRepository.save(audiobook);
     }
 
     public Audiobook updateAudiobook(Long id, Audiobook audiobook) {
+        audiobookValidator.validate(audiobook);
         if (audiobookRepository.existsById(id)) {
             audiobook.setId(id);
             return audiobookRepository.save(audiobook);
