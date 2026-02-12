@@ -4,18 +4,15 @@ import org.springframework.stereotype.Service;
 import se.iths.oscarp.libraryassignment.exception.AudiobookNotFoundException;
 import se.iths.oscarp.libraryassignment.model.Audiobook;
 import se.iths.oscarp.libraryassignment.repository.AudiobookRepository;
-import se.iths.oscarp.libraryassignment.validator.AudiobookValidator;
 
 import java.util.List;
 
 @Service
 public class AudiobookService {
     private final AudiobookRepository audiobookRepository;
-    private final AudiobookValidator audiobookValidator;
 
-    public AudiobookService(AudiobookRepository audiobookRepository, AudiobookValidator audiobookValidator) {
+    public AudiobookService(AudiobookRepository audiobookRepository) {
         this.audiobookRepository = audiobookRepository;
-        this.audiobookValidator = audiobookValidator;
     }
 
     public List<Audiobook> getAllAudiobooks() {
