@@ -1,4 +1,9 @@
-FROM ubuntu:latest
-LABEL authors="oscpe"
+FROM eclipse-temurin:17-jre
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY target/Library-Assignment-0.0.1-SNAPSHOT.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
