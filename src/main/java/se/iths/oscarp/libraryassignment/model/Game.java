@@ -16,7 +16,7 @@ public class Game {
     private String genre;
     private int age;
 
-    public Game(){};
+    public Game(){}
 
     public Game(String title, String make, String genre, int age) {}
 
