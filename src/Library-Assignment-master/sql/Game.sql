@@ -1,0 +1,7 @@
+CREATE TABLE game (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    make VARCHAR(255),
+    genre VARCHAR(255),
+    age INT
+)
