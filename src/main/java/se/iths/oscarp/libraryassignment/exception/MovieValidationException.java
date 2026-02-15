@@ -1,4 +1,4 @@
-package se.iths.oscarp.libraryassignment.exceptions;
+package se.iths.oscarp.libraryassignment.exception;
 
 public class MovieValidationException extends RuntimeException {
     public MovieValidationException(String message) {

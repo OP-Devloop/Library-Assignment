@@ -1,7 +1,7 @@
 package se.iths.oscarp.libraryassignment.service;
 
 import org.springframework.stereotype.Service;
-import se.iths.oscarp.libraryassignment.exceptions.MovieNotFoundException;
+import se.iths.oscarp.libraryassignment.exception.MovieNotFoundException;
 import se.iths.oscarp.libraryassignment.model.Movie;
 import se.iths.oscarp.libraryassignment.repository.MovieRepository;
 import se.iths.oscarp.libraryassignment.validator.MovieValidator;

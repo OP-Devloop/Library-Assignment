@@ -1,7 +1,7 @@
 package se.iths.oscarp.libraryassignment.validator;
 
 import org.springframework.stereotype.Component;
-import se.iths.oscarp.libraryassignment.exceptions.MovieValidationException;
+import se.iths.oscarp.libraryassignment.exception.MovieValidationException;
 import se.iths.oscarp.libraryassignment.model.Movie;
 
 @Component
