@@ -26,24 +26,26 @@ public class AudiobookService {
     }
 
     public Audiobook createAudiobook(Audiobook audiobook) {
+        audiobookValidator.validate(audiobook);
         return audiobookRepository.save(audiobook);
     }
 
     public Audiobook updateAudiobook(Long id, Audiobook audiobook) {
-        if (audiobookRepository.existsById(id)) {
-            audiobook.setId(id);
-            return audiobookRepository.save(audiobook);
-        } else {
-            throw new AudiobookNotFoundException("Audiobook id: " + id + " not found");
-        }
+        audiobookValidator.validate(audiobook);
+
+        Audiobook existing = audiobookRepository.findById(id)
+                .orElseThrow(() ->
+                        new AudiobookNotFoundException("Audiobook id: " + id + " not found"));
+
+        audiobook.setId(existing.getId());
+        return audiobookRepository.save(audiobook);
     }
 
     public void deleteAudiobook(Long id) {
-        if (audiobookRepository.existsById(id)) {
-            audiobookRepository.deleteById(id);
-        } else {
-            throw new AudiobookNotFoundException("Audiobook id: " + id + " not found");
-        }
+        Audiobook audiobook = audiobookRepository.findById(id)
+                .orElseThrow(() ->
+                        new AudiobookNotFoundException("Audiobook id: " + id + " not found"));
 
+        audiobookRepository.delete(audiobook);
     }
 }
