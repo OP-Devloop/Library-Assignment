@@ -6,7 +6,6 @@
 </head>
 <body class="container mt-5">
     <h1>Update Movie</h1>
-    <!-- th:action pekar på edit/{id} som vi definierade i controllern -->
     <form th:action="@{/movies/edit/{id}(id=${movie.id})}" th:object="${movie}" method="post">
         <div class="mb-3">
             <label class="form-label">Title</label>
