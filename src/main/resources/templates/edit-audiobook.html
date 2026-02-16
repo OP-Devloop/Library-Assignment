@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Audiobook</title>
+</head>
+<body>
+<h1>Update Audiobook</h1>
+
+<form method="POST" th:action="@{/audiobooks/{id}(id=${audiobook.id})}">
+    <input type="hidden" name="_method" value="PUT">
+
+    <p>
+        <label>Title: </label>
+        <input type="text" name="title"
+               th:value="${audiobook.title}">
+    </p>
+
+    <p>
+        <label>Date: </label>
+        <input type="text" name="date"
+               th:value="${audiobook.releaseDate}">
+    </p>
+
+    <p>
+        <label>Category: </label>
+        <input type="text" name="category"
+               th:value="${audiobook.category}">
+    </p>
+
+    <p>
+        <label>Author: </label>
+        <input type="text" name="author"
+               th:value="${audiobook.author}">
+    </p>
+
+    <p>
+        <label>Narrator: </label>
+        <input type="text" name="narrator"
+               th:value="${audiobook.narrator}">
+    </p>
+
+    <button type="submit">Update Audiobook</button>
+
+</form>
+
+</body>
+</html>

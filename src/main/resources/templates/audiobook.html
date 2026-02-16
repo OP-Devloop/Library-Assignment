@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Info On Audiobook</title>
+</head>
+<body>
+<h1>Info On Audiobook</h1>
+
+<span th:text="'ID: ' + ${audiobook.id}"></span>
+<span th:text="${audiobook.title}"></span> - <span th:text="${audiobook.releaseDate}"></span>
+<span th:text="${audiobook.category}"></span>
+<span th:text="${audiobook.author}"></span> - <span th:text="${audiobook.narrator}"></span>
+
+
+</body>
+</html>
