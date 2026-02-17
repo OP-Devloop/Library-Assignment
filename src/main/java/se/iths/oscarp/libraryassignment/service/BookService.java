@@ -15,34 +15,25 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    //getAll
     public List<Book> getAll() {
         return bookRepository.findAll();
     }
 
-    //getById
-    public Book getById(Long id) {
-        return bookRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("No book found with id: " + id));
-    }
-
-    //getByIsbn
-    public Book getByIsbn(Long isbn) {
-        return bookRepository.findByIsbn(isbn);
-    }
-
-    //createBook
     public Book createBook(Book book) {
         return bookRepository.save(book);
     }
 
-    //updateBook
-    public Book updateBook(Book book) {
+    public Book getBook(Long id) {
+        return bookRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("No book found with id: " + id));
+    }
+
+    public Book updateBook(Long id, Book book) {
+        book.setId(id);
         return bookRepository.save(book);
     }
 
-    //deleteBook
-    public void deleteBook(Book book) {
-        bookRepository.delete(book);
+    public void deleteBook(Long id) {
+        bookRepository.delete(getBook(id));
     }
 }
