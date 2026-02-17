@@ -7,7 +7,7 @@ import se.iths.oscarp.libraryassignment.exceptions.GameNotFoundException;
 import se.iths.oscarp.libraryassignment.exceptions.GameValidationException;
 import se.iths.oscarp.libraryassignment.model.Game;
 import se.iths.oscarp.libraryassignment.repository.GameRepository;
-import se.iths.oscarp.libraryassignment.validation.GameValidator;
+import se.iths.oscarp.libraryassignment.validator.GameValidator;
 
 import java.util.List;
 
