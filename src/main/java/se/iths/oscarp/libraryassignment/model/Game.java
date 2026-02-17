@@ -18,7 +18,12 @@ public class Game {
 
     public Game(){}
 
-    public Game(String title, String make, String genre, int age) {}
+    public Game(String title, String make, String genre, int age) {
+        this.title = title;
+        this.make = make;
+        this.genre = genre;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;

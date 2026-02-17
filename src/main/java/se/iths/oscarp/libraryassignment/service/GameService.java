@@ -22,7 +22,7 @@ public class GameService {
         this.gameValidator = gameValidator;
     }
 
-    public List<Game> getAllGames(String title) {
+    public List<Game> findAll() {
         return gameRepository.findAll();
     }
 
