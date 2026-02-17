@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create New Audiobook</title>
@@ -7,31 +7,31 @@
 <body>
 <h1>Create New Audiobook</h1>
 
-<form method="POST" th:action="@{/audiobooks}">
+<form method="post" th:action="@{/audiobooks}">
 
     <p>
         <label>Title: </label>
-        <input type="text" name="title">
+        <input type="text" name="title" required>
     </p>
 
     <p>
-        <label>Date: </label>
-        <input type="text" name="date">
+        <label>Release Date: </label>
+        <input type="date" name="releaseDate" required>
     </p>
 
     <p>
         <label>Category: </label>
-        <input type="text" name="category">
+        <input type="text" name="category" required>
     </p>
 
     <p>
         <label>Author: </label>
-        <input type="text" name="author">
+        <input type="text" name="author" required>
     </p>
 
     <p>
         <label>Narrator: </label>
-        <input type="text" name="narrator">
+        <input type="text" name="narrator" required>
     </p>
 
     <button type="submit">Save Audiobook</button>
