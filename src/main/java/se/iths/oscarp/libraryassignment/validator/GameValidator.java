@@ -16,8 +16,22 @@ public class GameValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
 
-    }
+        Game game = (Game) target;
 
-    public void validate(Game game) {
+        if (game.getTitle() == null || game.getTitle().isBlank()) {
+            errors.rejectValue("title", "title.empty", "Title must not be empty");
+        }
+
+        if (game.getMake() == null || game.getMake().isBlank()) {
+            errors.rejectValue("make", "make.empty", "Make must not be empty");
+        }
+
+        if (game.getGenre() == null || game.getGenre().isBlank()) {
+            errors.rejectValue("genre", "genre.empty", "Genre must not be empty");
+        }
+
+        if (game.getAge() < 0 || game.getAge() > 99) {
+            errors.rejectValue("age", "age.invalid", "Age must be between 0 and 99");
+        }
     }
 }
