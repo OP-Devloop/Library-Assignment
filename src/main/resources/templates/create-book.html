@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new book</title>
+</head>
+<body>
+<h2>Create new book!</h2>
+
+<form method="post" th:action="@{/books}">
+    <p>
+        <label>Title: </label>
+        <label>
+            <input type="text" name="title" required>
+        </label>
+    </p>
+    <p>
+        <label>Author: </label>
+        <label>
+            <input type="text" name="author" required>
+        </label>
+    </p>
+    <p>
+        <label>Year: </label>
+        <label>
+            <input type="text" name="year" required>
+        </label>
+    </p>
+    <p>
+        <label>Genre: </label>
+        <label>
+            <input type="text" name="genre" required>
+        </label>
+    </p>
+    <input type="submit">
+    <a th:href="@{/books}">Cancel</a>
+</form>
+
+</body>
+</html>
