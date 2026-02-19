@@ -10,13 +10,10 @@
     <li th:each="book : ${books}">
         <span th:text="${book.title}"></span>
         <a th:href="@{/books/{book_id}(book_id=${book.id})}">Show more info</a>
-        <span> - </span>
-        <a th:href="@{/books/{id}/edit(id=${book.id})}">Update book</a>
-        <span> - </span>
     </li>
-    <form>
-        <a type="submit" th:href="@{/books/new}">Create new book</a>
-    </form>
+    <a th:href="@{/books/new}">
+        <button>Create new book</button>
+    </a>
 </ul>
 </body>
 </html>

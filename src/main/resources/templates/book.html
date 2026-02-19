@@ -13,11 +13,12 @@
         th:text="${book.author}"></span> in <span th:text="${book.year}"></span> -
 
 <a th:href="@{/books}">See all books</a>
+<br>
+<a th:href="@{/books/{id}/edit(id=${book.id})}">
+    <button>Edit</button>
+</a>
+<br>
 
-<form th:action="@{/books/{id}/edit(id=${book.id})}" method="post" style="display:inline">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit">Edit</button>
-</form>
 <form th:action="@{/books/{id}(id=${book.id})}" method="post" style="display:inline">
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Delete</button>
