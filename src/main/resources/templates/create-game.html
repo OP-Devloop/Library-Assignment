@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Game</title>
+</head>
+<body>
+<h1>Create New Game</h1>
+
+<form th:action="@{/games/new}" th:object="${game}" method="post">
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" /><br>
+
+    <label>Make:</label>
+    <input type="text" th:field="*{make}" /><br>
+
+    <label>Genre:</label>
+    <input type="text" th:field="*{genre}" /><br>
+
+    <label>Age:</label>
+    <input type="number" th:field="*{age}" /><br>
+
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>
