@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Show Info On Audiobook</title>
 </head>
 <body>
+
 <h1>Info On Audiobook</h1>
 
-<span th:text="'ID: ' + ${audiobook.id}"></span>
-<span th:text="${audiobook.title}"></span> - <span th:text="${audiobook.releaseDate}"></span>
-<span th:text="${audiobook.category}"></span>
-<span th:text="${audiobook.author}"></span> - <span th:text="${audiobook.narrator}"></span>
+<p><strong>ID:</strong> <span th:text="${audiobook.id}"></span></p>
 
+<p>
+    <strong>Title:</strong> <span th:text="${audiobook.title}"></span><br>
+    <strong>Release Date:</strong> <span th:text="${audiobook.releaseDate}"></span>
+</p>
+
+<p><strong>Category:</strong> <span th:text="${audiobook.category}"></span></p>
+
+<p>
+    <strong>Author:</strong> <span th:text="${audiobook.author}"></span><br>
+    <strong>Narrator:</strong> <span th:text="${audiobook.narrator}"></span>
+</p>
 
 </body>
 </html>

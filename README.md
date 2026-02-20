@@ -17,6 +17,6 @@ Följande variabler krävs för databaskopplingen:
 * `DB_USERNAME`
 * `DB_PASSWORD`
 
-### Hur man sätter miljövariabler
+### Hur man sätter dem
 * **Terminal:** Använd `export VAR_NAMN=värde`.
 * **IntelliJ:** Lägg till under *Environment variables* i din Run Configuration.

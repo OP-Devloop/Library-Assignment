@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All Audiobooks</title>
@@ -8,20 +8,19 @@
 <h1>All Audiobooks</h1>
 
 <ul>
-
     <li th:each="audiobook : ${audiobooks}">
-        <span th:text="${audiobook.title}"></span>
-        <a th:href="@{/audiobooks/{id}(id=${audiobook.id})}">Show Info</a>
-        <span> - </span>
-        <a th:href="@{/audiobooks/{id}/edit(id=${audiobook.id})}">Update audiobook</a>
+        <strong th:text="${audiobook.title}"></strong><br>
 
-        <form th:action="@{/audiobooks/{id}(id=${audiobook.id})}" method="post" style="display: inline;">
+        <a th:href="@{/audiobooks/{id}(id=${audiobook.id})}">Show Info</a> |
+        <a th:href="@{/audiobooks/{id}/edit(id=${audiobook.id})}">Update</a> |
+
+        <form th:action="@{/audiobooks/{id}(id=${audiobook.id})}"
+              method="post"
+              style="display: inline;">
             <input type="hidden" name="_method" value="Delete">
             <button type="submit">Delete</button>
-
         </form>
     </li>
-
 </ul>
 
 </body>

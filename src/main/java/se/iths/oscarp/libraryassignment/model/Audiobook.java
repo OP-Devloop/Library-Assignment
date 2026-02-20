@@ -23,6 +23,15 @@ public class Audiobook {
     public Audiobook() {
     }
 
+    public Audiobook(Long id, String title, String category, String author, String narrator, String releaseDate) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.author = author;
+        this.narrator = narrator;
+        this.releaseDate = releaseDate;
+    }
+
     public Long getId() {
         return id;
     }
