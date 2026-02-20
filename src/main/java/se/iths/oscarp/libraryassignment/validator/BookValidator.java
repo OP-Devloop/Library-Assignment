@@ -21,11 +21,17 @@ public class BookValidator {
         if (title == null || title.isEmpty()) {
             throw new BookValidationException("Title can not be empty");
         }
+        if (title.length() > 20) {
+            throw new BookValidationException("Title can not be longer than 20 characters");
+        }
     }
 
     public void validateAuthor(String author) {
         if (author == null || author.isEmpty()) {
             throw new BookValidationException("Author can not be empty");
+        }
+        if (author.length() > 20) {
+            throw new BookValidationException("Author can not be longer than 20 characters");
         }
     }
 
@@ -33,11 +39,17 @@ public class BookValidator {
         if (genre == null || genre.isEmpty()) {
             throw new BookValidationException("Genre can not be empty");
         }
+        if (genre.length() > 20) {
+            throw new BookValidationException("Genre can not be longer than 20 characters");
+        }
     }
 
     public void validateYear(int year) {
         if (year <= 1800) {
             throw new BookValidationException("Year can not be less than 1800");
+        }
+        if (year >= 2030) {
+            throw new BookValidationException("Year must not be in the future");
         }
     }
 
