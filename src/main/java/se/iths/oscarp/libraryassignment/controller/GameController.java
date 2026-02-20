@@ -36,7 +36,7 @@ public class GameController {
         return "games";
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteGame(@PathVariable Long id) {
         gameService.deleteGameById(id);
         return "redirect:/games";
