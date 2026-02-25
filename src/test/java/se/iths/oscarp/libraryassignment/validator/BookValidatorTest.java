@@ -15,13 +15,13 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithNullBook() {
+    void Validate_WithNullBook() {
         Assertions.assertThrows(BookValidationException.class,
                 () -> bookValidator.validate(new Book()));
     }
 
     @Test
-    void testValidateWithNullTitle() {
+    void Validate_WithNullTitle() {
         Book book = new Book();
         book.setAuthor("Sven Nordqvist");
 
@@ -32,7 +32,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithTooLongTitle() {
+    void Validate_WithTooLongTitle() {
         Book book = new Book();
         book.setAuthor("Sven Nordqvist");
         book.setTitle("Pappa med stor hatt kommer hem och bli arg");
@@ -43,7 +43,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithNullAuthor() {
+    void Validate_WithNullAuthor() {
         Book book = new Book();
 
         book.setTitle("Pappa med stor hatt");
@@ -54,7 +54,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithTooLongAuthor() {
+    void Validate_WithTooLongAuthor() {
         Book book = new Book();
         book.setAuthor("Sven Engbert Roshamn Nordqvist");
         book.setTitle("Pappa med stor hatt");
@@ -65,7 +65,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithTooLongGenre() {
+    void Validate_WithTooLongGenre() {
         Book book = new Book();
         book.setAuthor("Sven Nordqvist");
         book.setTitle("Pappa med stor hatt");
@@ -76,7 +76,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithNullGenre() {
+    void Validate_WithNullGenre() {
         Book book = new Book();
         book.setAuthor("Sven Nordqvist");
         book.setTitle("Pappa med stor hatt");
@@ -87,7 +87,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithTooSmallYear() {
+    void Validate_WithTooSmallYear() {
         Book book = new Book();
         book.setAuthor("Sven Nordqvist");
         book.setTitle("Pappa med stor hatt");
@@ -98,7 +98,7 @@ class BookValidatorTest {
     }
 
     @Test
-    void testValidateWithFutureYear() {
+    void Validate_WithFutureYear() {
         Book book = new Book();
         book.setAuthor("Sven Nordqvist");
         book.setTitle("Pappa med stor hatt");
