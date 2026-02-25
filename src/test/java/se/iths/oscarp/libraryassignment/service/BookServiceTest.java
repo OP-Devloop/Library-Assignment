@@ -75,11 +75,12 @@ class BookServiceTest {
 
     @Test
     void update_Validation_andSave() {
-        Book updatedBook = new Book("Mio min Mio", "Astrid Lindgren", 1987, "Barnbok/äventyr");
+        Book updatedBook = new Book(1L, "Mio min Mio", "Astrid Lindgren", 1987, "Barnbok/äventyr");
         when(mockBookRepository.save(updatedBook)).thenReturn(updatedBook);
-        when(mockBookRepository.findById(1L)).thenReturn(Optional.of(updatedBook));
 
-        assertEquals(1L, updatedBook.getId());
+        testBookService.update(1L, updatedBook);
+
+        assertNotNull(updatedBook);
         verify(mockBookValidator, times(1)).validate(updatedBook);
         verify(mockBookRepository, times(1)).save(updatedBook);
     }
