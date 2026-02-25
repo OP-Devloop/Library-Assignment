@@ -77,6 +77,7 @@ class BookServiceTest {
     void update_Validation_andSave() {
         Book updatedBook = new Book("Mio min Mio", "Astrid Lindgren", 1987, "Barnbok/äventyr");
         when(mockBookRepository.save(updatedBook)).thenReturn(updatedBook);
+        when(mockBookRepository.findById(1L)).thenReturn(Optional.of(updatedBook));
 
         assertEquals(1L, updatedBook.getId());
         verify(mockBookValidator, times(1)).validate(updatedBook);
