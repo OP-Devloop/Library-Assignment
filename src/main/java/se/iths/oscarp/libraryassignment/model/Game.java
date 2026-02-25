@@ -1,11 +1,9 @@
 package se.iths.oscarp.libraryassignment.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "games")
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,6 +52,7 @@ public class Game {
     }
 
     public void setAge(int age) {
+        this.age = age;
     }
 }
 
