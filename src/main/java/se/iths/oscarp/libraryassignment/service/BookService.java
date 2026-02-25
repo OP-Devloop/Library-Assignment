@@ -23,23 +23,23 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book createBook(Book book) throws BookValidationException {
-
+    public Book save(Book book) throws BookValidationException {
+        bookValidator.validate(book);
         return bookRepository.save(book);
     }
 
-    public Book getBook(Long id) {
+    public Book getById(Long id) {
         return bookRepository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException(id));
     }
 
-    public Book updateBook(Long id, Book book) throws BookValidationException {
+    public Book update(Long id, Book book) throws BookValidationException {
         book.setId(id);
         bookValidator.validate(book);
         return bookRepository.save(book);
     }
 
-    public void deleteBook(Long id) {
-        bookRepository.delete(getBook(id));
+    public void delete(Long id) {
+        bookRepository.delete(getById(id));
     }
 }
