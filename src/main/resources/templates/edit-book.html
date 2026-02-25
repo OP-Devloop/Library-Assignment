@@ -21,7 +21,8 @@
     <p>
         <label>Year: </label>
         <label>
-            <input type="text" name="year" th:placeholder="${book.year}" th:value="${book.year}" required>
+            <input type="text" name="year" th:placeholder="${book.year}" th:value="${book.year}" required min=1800
+                   max=2200>
         </label>
     </p>
     <p>

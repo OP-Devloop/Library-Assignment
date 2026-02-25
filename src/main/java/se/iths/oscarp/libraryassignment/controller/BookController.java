@@ -34,13 +34,13 @@ public class BookController {
 
     @PostMapping("")
     public String createBook(@ModelAttribute Book book) {
-        Book book1 = bookService.save(book);
+        bookService.save(book);
         return "redirect:/books";
     }
 
     @PostMapping("/{id}")
     public String updateBook(@PathVariable Long id, @ModelAttribute Book book) {
-        Book book2 = bookService.update(id, book);
+        bookService.update(id, book);
         return "redirect:/books";
     }
 
