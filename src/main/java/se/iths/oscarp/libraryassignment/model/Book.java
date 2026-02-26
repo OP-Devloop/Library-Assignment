@@ -3,6 +3,7 @@ package se.iths.oscarp.libraryassignment.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,13 +28,6 @@ public class Book {
         this.genre = genre;
     }
 
-    public Book(Long id, String title, String author, int year, String genre) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.year = year;
-        this.genre = genre;
-    }
 
     public String getAuthor() {
         return author;

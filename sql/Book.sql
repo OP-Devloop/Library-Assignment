@@ -1,9 +1,10 @@
 CREATE TABLE book
 (
-    book_id BIGINT PRIMARY KEY,
+    book_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title   VARCHAR(20) NOT NULL,
     author  VARCHAR(20) NOT NULL,
     year    INT         NOT NULL,
     genre   VARCHAR(20) NOT NULL
 );
 
+DROP TABLE book;
