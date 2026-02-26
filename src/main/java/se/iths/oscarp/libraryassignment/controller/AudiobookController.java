@@ -29,7 +29,7 @@ public class AudiobookController {
     @PostMapping
     public String createAudiobook(@ModelAttribute Audiobook audiobook) {
         Audiobook audiobook1 = audiobookService.createAudiobook(audiobook);
-        return "redirect:/audiobooks/";
+        return "redirect:/audiobooks";
     }
 
     @GetMapping("/{id}")

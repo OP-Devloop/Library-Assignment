@@ -7,6 +7,10 @@
 <body>
 <h1>All Audiobooks</h1>
 
+<a th:href="@{/audiobooks/new}">
+    <button type="button">Create Audiobook</button>
+</a>
+
 <ul>
     <li th:each="audiobook : ${audiobooks}">
         <strong th:text="${audiobook.title}"></strong><br>
