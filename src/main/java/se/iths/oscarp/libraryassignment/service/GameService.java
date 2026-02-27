@@ -31,9 +31,9 @@ public class GameService {
                 .orElseThrow(() -> new GameNotFoundException("Game with id " + id + " not found"));
     }
 
-    public Game createGame(Game game) {
+    public Game save(Game game) {
         Errors errors = new BeanPropertyBindingResult(game, "game");
-        gameValidator.validate(game, errors);
+        gameValidator.validate(game);
         if (errors.hasErrors()) {
             throw new GameValidationException("Error: " + errors.getAllErrors());
         }
@@ -41,21 +41,10 @@ public class GameService {
     }
 
     public Game updateGame(Long id, Game updatedGame) {
-        Game existingGame = gameRepository.findById(id)
-                .orElseThrow(() ->
-                        new GameNotFoundException("Game with id " + id + " not found"));
-
-        existingGame.setTitle(updatedGame.getTitle());
-        existingGame.setMake(updatedGame.getMake());
-        existingGame.setGenre(updatedGame.getGenre());
-        existingGame.setAge(updatedGame.getAge());
-
-        Errors errors = new BeanPropertyBindingResult(existingGame, "game");
-        gameValidator.validate(existingGame, errors);
-        if(errors.hasErrors()){
-            throw new GameValidationException(errors.getAllErrors().toString());
-        }
-        return gameRepository.save(existingGame);
+        gameRepository.findById(id).orElseThrow(() -> new GameNotFoundException("Game with id " + id + " not found"));
+        gameValidator.validate(updatedGame);
+        updatedGame.setId(id);
+        return gameRepository.save(updatedGame);
     }
 
     public void deleteGameById(Long id) {
