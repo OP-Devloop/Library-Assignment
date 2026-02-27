@@ -1,14 +1,11 @@
 package se.iths.oscarp.libraryassignment.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.validation.BeanPropertyBindingResult;
 import se.iths.oscarp.libraryassignment.exception.GameNotFoundException;
-import se.iths.oscarp.libraryassignment.exception.GameValidationException;
 import se.iths.oscarp.libraryassignment.model.Game;
 import se.iths.oscarp.libraryassignment.repository.GameRepository;
 import se.iths.oscarp.libraryassignment.validator.GameValidator;
@@ -51,8 +48,46 @@ class GameServiceTest {
     }
 
     @Test
-    void findById_NonExistingIdReturnsNull() {
+    void findById_NonExistingId_ShouldThrowException() {
         when(gameRepository.findById(1L)).thenReturn(Optional.empty());
         assertThrows(GameNotFoundException.class, () -> gameService.getGameById(1L));
+    }
+
+    @Test
+    void save_WithValidGame_ShouldCallValidatorSaveGame() {
+        Game game = new Game("Title", "Make", "Genre", 8);
+
+        when(gameRepository.save(game)).thenReturn(game);
+
+        Game result = gameService.save(game);
+
+        verify(gameValidator, times(1)).validate(game);
+        verify(gameRepository, times(1)).save(game);
+        assertNotNull(result);
+    }
+
+    @Test
+    void update_WithExistingId_ShouldUpdateAndSave(){
+        Game existingGame = new Game("Title", "Make", "Genre", 8);
+        Game updatedGame = new Game("Title", "Make", "Genre", 12);
+
+        when(gameRepository.findById(1L)).thenReturn(Optional.of(existingGame));
+        when(gameRepository.save(updatedGame)).thenReturn(updatedGame);
+
+        Game result = gameService.updateGame(1L, updatedGame);
+
+        assertEquals(1L, updatedGame.getId());
+        verify(gameValidator, times(1)).validate(updatedGame);
+        verify(gameRepository, times(1)).save(updatedGame);
+    }
+
+    @Test
+    void delete_WithExistingId_ShouldDeleteGame(){
+        Game game = new Game("Title", "Make", "Genre", 8);
+
+        when(gameRepository.findById(1L)).thenReturn(Optional.of(game));
+        gameService.deleteGameById(1L);
+
+        verify(gameRepository, times(1)).deleteById(1L);
     }
 }

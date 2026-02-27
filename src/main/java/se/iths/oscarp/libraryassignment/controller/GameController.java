@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import se.iths.oscarp.libraryassignment.model.Game;
 import se.iths.oscarp.libraryassignment.service.GameService;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/games")
 public class GameController {
@@ -26,7 +24,7 @@ public class GameController {
 
     @PostMapping("/new")
     public String createGame(@ModelAttribute Game game){
-        gameService.createGame(game);
+        gameService.save(game);
         return "redirect:/games";
     }
 
